@@ -1,0 +1,4 @@
+Service Level,Safety Stock (units),Reorder Point (units),Z Score
+90%,9025.0,48927.0,1.28
+95%,11634.0,51536.0,1.65
+99%,16429.0,56331.0,2.33
