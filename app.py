@@ -22,7 +22,7 @@ def load_data():
     df = train.merge(features, on=['Store', 'Date', 'IsHoliday'], how='left')
     df = df.merge(stores, on='Store', how='left')
     df['Date'] = pd.to_datetime(df['Date'])
-    df = df[df['Weekly_Sales'] > 0]
+    df = df[df['Weekly_Sales'] >= 0]
     return df
 
 @st.cache_data
@@ -167,11 +167,20 @@ with tab3:
     
     demand_change = st.slider("Demand Change (%)", min_value=-50, max_value=100, value=0, step=5)
     
-    ordering_cost = 500
-    unit_cost = 25
-    holding_cost = unit_cost * 0.25
-    lead_time = 2
-    z = 1.65
+    st.markdown("#### Cost & Supply Assumptions")
+    # FIX: Expose assumptions to the user so they aren't "magic numbers" hidden in code
+    col_a, col_b, col_c, col_d = st.columns(4)
+    with col_a:
+        unit_cost = st.number_input("Unit Cost ($)", min_value=1.0, value=25.0, step=5.0)
+    with col_b:
+        ordering_cost = st.number_input("Ordering Cost ($)", min_value=1.0, value=500.0, step=50.0)
+    with col_c:
+        holding_cost_pct = st.number_input("Annual Holding Cost (%)", min_value=1, max_value=100, value=25)
+    with col_d:
+        lead_time = st.number_input("Lead Time (weeks)", min_value=1, value=2, step=1, key="lt_tab3")
+        
+    holding_cost = unit_cost * (holding_cost_pct / 100)
+    z = 1.65  # Service level factor for 95%
     
     base_demand = inv_row3['Avg_Weekly_Demand']
     new_demand = base_demand * (1 + demand_change / 100)
@@ -228,9 +237,13 @@ with tab4:
         lead_time4 = st.number_input("Lead Time (weeks)", min_value=1, max_value=12, value=2)
     
     avg_demand = inv_row4['Avg_Weekly_Demand']
-    demand_std = avg_demand * 0.25
+    
+    
+    dept_data4 = df[df['Dept'] == selected_dept4].groupby('Date')['Weekly_Sales'].mean().reset_index()
+    demand_std = dept_data4['Weekly_Sales'].std()
     
     expected_consumption = avg_demand * lead_time4
+    
     consumption_std = demand_std * np.sqrt(lead_time4)
     
     if consumption_std > 0:
