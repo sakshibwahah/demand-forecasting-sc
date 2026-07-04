@@ -3,7 +3,7 @@
 
 A full-stack SC analytics project built on Walmart's retail sales data. Combines ML-based demand forecasting with inventory optimisation across 21 Class A departments, deployed as an interactive Streamlit application.
 
-**Live App:** [Add Streamlit URL here]  
+**Live App:** https://demand-forecasting-sc-4z3zvtcabjysdxfblxbdem.streamlit.app/
 **Dataset:** [Walmart Sales Forecast — Kaggle](https://www.kaggle.com/datasets/aslanahmedov/walmart-sales-forecast)
 
 ---
