@@ -147,7 +147,7 @@ Full Pareto chart and classification table across all 81 departments.
 
 1. **XGBoost significantly outperforms Prophet** for structured retail time series — MAPE of 5.84% vs 10.87%, driven by lag features capturing weekly and annual seasonality
 2. **21 departments (26%) drive 69.6% of revenue** — ABC analysis enables focused inventory management on high-impact SKUs
-3. **EOQ policy saves $7.2M annually** across Class A departments vs a bi-weekly replenishment baseline
+3. **EOQ policy saves $4.1M annually** across Class A departments vs a bi-weekly replenishment baseline
 4. **Dept 5 shows highest forecast error (15.31%)** due to extreme holiday demand spikes — recommends higher safety stock buffer during Q4
 5. **Safety stock at 95% service level** reduces stockout probability to <5% during standard 2-week lead time periods
 
