@@ -80,7 +80,7 @@ Scaled the XGBoost pipeline across all 21 Class A departments:
 Applied Economic Order Quantity (EOQ) optimisation to each Class A department using forecasted demand as input.
 
 **Assumptions (Chopra & Meindl, Supply Chain Management, 2016):**
-- Ordering cost: $500/order — covers PO processing (~$150), transportation fixed cost (~$250), receiving/inspection (~$100)
+- Ordering cost: $2000/order — covers PO processing, transportation fixed cost, receiving/inspection
 - Holding cost: 25% of unit cost annually — capital (~15%), storage (~5%), shrinkage (~5%)
 - Service level: 95% (z = 1.65)
 - Lead time: 2 weeks (typical Walmart domestic supplier replenishment)
@@ -90,22 +90,22 @@ Applied Economic Order Quantity (EOQ) optimisation to each Class A department us
 
 | Metric | Value |
 |---|---|
-| Average Cost Reduction vs Baseline | 74.44% |
-| Total EOQ Annual Cost | $2,194,326.86 |
-| Total Baseline Annual Cost | $9,405,036.01 |
-| **Total Annual Saving** | **$7,210,709.15** |
+| Average Cost Reduction vs Baseline | 35.91% |
+| Total EOQ Annual Cost | $6,206,493.66 |
+| Total Baseline Annual Cost |$10,360,536.01 |
+| **Total Annual Saving** | **$4,154,042.35** |
 
 **Single-SKU example (Dept 1, Store 1):**
 
 | Metric | Value |
 |---|---|
-| Avg Weekly Demand | 19,950.80 units |
-| EOQ | 12,883.73 units |
-| Safety Stock (95% SL) | 11,634 units |
-| Reorder Point | 51,536 units |
-| EOQ Annual Cost | $80,523.34 |
-| Baseline Cost (2-week cycle) | $255,884.94 |
-| Cost Reduction | 68.53% |
+| Avg Weekly Demand | 18,783.08 units |
+| EOQ | 17,679.10 units |
+| Safety Stock (95% SL) | 3910.0 units |
+| Reorder Point | 41477.0 units |
+| EOQ Annual Cost | $220,988.73 |
+| Baseline Cost (2-week cycle) | $286788.55 |
+| Cost Reduction | 22.94% |
 
 ---
 
