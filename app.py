@@ -7,7 +7,6 @@ import plotly.express as px
 from scipy import stats
 import warnings
 warnings.filterwarnings('ignore')
-
 st.set_page_config(page_title="SC Analytics Dashboard", page_icon="📦", layout="wide")
 
 @st.cache_data
