@@ -110,8 +110,7 @@ with tab1:
 # ── TAB 2: INVENTORY RECOMMENDATIONS ──────────────────────
 with tab2:
     st.header("Inventory Recommendations")
-    st.caption("Inventory metrics represent per-store average demand. Ordering cost $500 reflects typical retail PO processing and fixed transportation. Holding cost 25% covers capital (~15%), storage (~5%), and shrinkage (~5%) — consistent with Chopra & Meindl (2016).")
-
+    st.caption("Inventory metrics represent per-store average demand. Ordering cost $2,000 reflects retail PO processing, fixed transportation, and supplier coordination. Holding cost 25% covers capital (~15%), storage (~5%), and shrinkage (~5%) — consistent with Chopra & Meindl (2016).")
     selected_dept2 = st.selectbox("Select Department", class_a_depts, key="dept_inventory")
     inv_row = inventory[inventory['Dept'] == selected_dept2].iloc[0]
 
@@ -164,9 +163,9 @@ with tab3:
     st.markdown("#### Cost & Supply Assumptions")
     col_a, col_b, col_c, col_d = st.columns(4)
     with col_a:
-        unit_cost = st.number_input("Unit Cost ($)", min_value=1.0, value=25.0, step=5.0)
+        unit_cost = st.number_input("Unit Cost ($)", min_value=10.0, value=50.0, step=5.0)
     with col_b:
-        ordering_cost = st.number_input("Ordering Cost ($)", min_value=1.0, value=500.0, step=50.0)
+        ordering_cost = st.number_input("Ordering Cost ($)", min_value=1.0, value=2000.0, step=50.0)
     with col_c:
         holding_cost_pct = st.number_input("Annual Holding Cost (%)", min_value=1, max_value=100, value=25)
     with col_d:
